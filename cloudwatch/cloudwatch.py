@@ -87,7 +87,7 @@ class CloudwatchHandler(logging.Handler):
     #Send the message to AWS
     self.logs.put_log_events(logGroupName=self.log_group,
         logStreamName=self.log_stream,
-        sequenceToken="", # ignored by PutLogEvents
+        sequenceToken='ignore', # ignored by PutLogEvents
         logEvents=[{'timestamp': timestamp,'message': log_entry}])
     
   def emit(self, record):
